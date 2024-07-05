@@ -3,9 +3,9 @@ import { checkErrorsMiddleware } from "../../../global-middlewares/checkErrorsMi
 
 const nameValidator =
     body('login')
-        .isString().withMessage('name must be a string')
+        .isString().withMessage('login must be a string')
         .trim()
-        .isLength({ min: 3, max: 10 }).withMessage('The name length must be between 3 and 10 characters')
+        .isLength({ min: 3, max: 10 }).withMessage('The login length must be between 3 and 10 characters')
 
 const passwordValidator =
     body('password')
