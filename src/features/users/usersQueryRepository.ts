@@ -7,8 +7,6 @@ export const userQueryRepository = {
 
         const searchFilter = this.getSearchFilter(queryParams.searchLoginTerm, queryParams.searchEmailTerm)
 
-        console.log("searchFilter ", searchFilter);
-
         const items = await usersCollection
             .find(searchFilter)
             .sort(queryParams.sortBy, queryParams.sortDirection)
@@ -37,9 +35,16 @@ export const userQueryRepository = {
     getSearchFilter(loginTerm: string | null, emailTerm: string | null) {
 
         if (loginTerm || emailTerm) {
+            // return {
+            //     login: loginTerm ? { $regex: loginTerm, $options: 'i' } : { $exists: true },
+            //     email: emailTerm ? { $regex: emailTerm, $options: 'i' } : { $exists: true }
+            // }
+
             return {
-                login: loginTerm ? { $regex: loginTerm, $options: 'i' } : { $exists: true },
-                email: emailTerm ? { $regex: emailTerm, $options: 'i' } : { $exists: true }
+                $or: [
+                    { login: loginTerm ? { $regex: loginTerm, $options: 'i' } : { $exists: true } },
+                    { email: emailTerm ? { $regex: emailTerm, $options: 'i' } : { $exists: true } }
+                ]
             }
         }
 
