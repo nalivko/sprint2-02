@@ -2,7 +2,7 @@ import { body } from "express-validator";
 import { checkErrorsMiddleware } from "../../../global-middlewares/checkErrorsMiddleware";
 
 const nameValidator =
-    body('name')
+    body('login')
         .isString().withMessage('name must be a string')
         .trim()
         .isLength({ min: 3, max: 10 }).withMessage('The name length must be between 3 and 10 characters')
