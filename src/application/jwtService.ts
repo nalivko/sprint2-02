@@ -6,7 +6,6 @@ import { usersRepository } from '../features/users/usersRepository'
 export const jwtService = {
     async createToken(userId: string): Promise<string> {
         const user = await usersRepository.getUserById(userId)
-        console.log('user ', user);
 
         return jwt.sign(
             {
@@ -25,6 +24,7 @@ export const jwtService = {
     getUserIdByToken(token: string): string | null {
         try {
             const result = jwt.verify(token, SETTINGS.AC_SECRET) as JwtPayload
+            console.log('test3', result);
 
             return result.user.userId
         } catch (error) {

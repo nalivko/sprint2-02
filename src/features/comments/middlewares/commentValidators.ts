@@ -24,7 +24,6 @@ export const postIdValidator =
         })
 
 export const commentValidators = [
-    authMiddleware,
     contentValidator,
     postIdValidator,
     checkErrorsMiddleware
