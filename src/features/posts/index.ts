@@ -22,4 +22,4 @@ postsRouter.put('/:id', blogIdValidator, ...postValidators, updatePostController
 postsRouter.delete('/:id', basicMiddleweare, deletePostController)
 
 postsRouter.get('/:postId/comments', getPostCommentsController)
-postsRouter.post('/:postId/comments', authMiddleware, commentValidators, createCommentController)
+postsRouter.post('/:postId/comments', commentValidators, createCommentController)

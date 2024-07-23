@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from "express"
 import { jwtService } from "../../../application/jwtService"
 import { usersRepository } from "../../users/usersRepository"
-import { loginInputType } from "../controllers/types/loginTypes"
 
 export const authMiddleware = async (req: Request<{}, {}, {}>, res: Response, next: NextFunction) => {
     if (!req.headers.authorization) {
