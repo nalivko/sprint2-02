@@ -1,6 +1,5 @@
-import { body, param } from "express-validator";
+import { body } from "express-validator";
 import { checkErrorsMiddleware } from "../../../global-middlewares/checkErrorsMiddleware";
-import { postsRepository } from "../../posts/posts-db-repository";
 
 export const contentValidator =
     body('content')

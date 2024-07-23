@@ -10,8 +10,6 @@ export const createUserController = async (req: Request<{}, {}, UserInputModel>,
         res.status(400).send(result.errorMessages);
         return
     }
-
-    // console.log(result);
     
     res.status(201).send(result.data)
 }

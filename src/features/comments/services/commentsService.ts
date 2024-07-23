@@ -38,7 +38,7 @@ export const commentService = {
 
     async updateComment(id: string, data: CommentInputModel, userId: string): Promise<Result<CommentViewModel | null>> {
         const comment = await this.getCommentById(id)
-        
+
         if(!comment) {
             return {
                 status: ResultStatus.NotFound,
@@ -70,8 +70,6 @@ export const commentService = {
 
     async deleteComment(id: string, userId: string): Promise<Result<CommentViewModel | null>> {
         const comment = await this.getCommentById(id)
-
-        console.log('test', id);
         
         if(!comment) {
             return {

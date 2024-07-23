@@ -3,7 +3,6 @@ import { userQueryRepository } from "../../users/usersQueryRepository"
 
 export const authController = async (req: Request, res: Response) => {
     const userId = req.user?.userId
-    console.log('userId ', userId);
     
     if (!userId) return res.status(401)
 

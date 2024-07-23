@@ -1,7 +1,7 @@
 import { req } from './helpers/test-helpers'
 // import { db, setDB } from '../src/db/db'
 import { SETTINGS } from '../src/settings'
-import { BlogInputModel } from '../src/input-output-types/blogs-types'
+import { BlogInputModel } from '../src/features/blogs/types/blogs-types'
 import { blog, codedAuth, createString, dataset1 } from './helpers/datasets'
 import { runDb, blogsCollection, postsCollection } from '../src/db/mongodb'
 import exp from 'constants'
