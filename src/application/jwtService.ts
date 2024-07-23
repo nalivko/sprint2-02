@@ -24,7 +24,6 @@ export const jwtService = {
     getUserIdByToken(token: string): string | null {
         try {
             const result = jwt.verify(token, SETTINGS.AC_SECRET) as JwtPayload
-            console.log('test3', result);
 
             return result.user.userId
         } catch (error) {

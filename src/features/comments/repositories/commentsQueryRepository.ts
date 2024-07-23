@@ -25,6 +25,8 @@ export const commentsQueryRepository = {
     },
 
     async getCommentById(id: string): Promise<CommentViewModel | null> {
+        console.log('id', id);
+        
         let comment = await commentsCollection.findOne({_id: new ObjectId(id)})
         
         return comment ? this.mapComment(comment) : null

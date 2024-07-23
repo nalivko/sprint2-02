@@ -70,6 +70,8 @@ export const commentService = {
 
     async deleteComment(id: string, userId: string): Promise<Result<CommentViewModel | null>> {
         const comment = await this.getCommentById(id)
+
+        console.log('test', id);
         
         if(!comment) {
             return {
