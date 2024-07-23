@@ -5,8 +5,6 @@ import { CommentInputModel, CommentViewModel } from "../types/commentsTypes";
 
 export const commentsRepository = {
     async createComment(newComment: CommentDbType): Promise<CommentViewModel> {
-        console.log('com ', newComment);
-
         await commentsCollection.insertOne(newComment)
 
         return this.mapComment(newComment)
@@ -26,7 +24,7 @@ export const commentsRepository = {
     },
 
     async deleteComment(id: string): Promise<boolean> {
-        let result = await commentsCollection.deleteOne({_id: new ObjectId(id)})
+        let result = await commentsCollection.deleteOne({ _id: new ObjectId(id) })
 
         return result.deletedCount === 1
     },
