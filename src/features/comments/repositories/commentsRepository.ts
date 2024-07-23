@@ -31,7 +31,7 @@ export const commentsRepository = {
 
     mapComment(comment: CommentDbType) {
         return {
-            id: comment.postId.toString(),
+            id: comment._id!.toString(),
             content: comment.content,
             commentatorInfo: comment.commentatorInfo,
             createdAt: comment.createdAt,
