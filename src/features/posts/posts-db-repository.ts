@@ -1,8 +1,7 @@
-import { PostDbType } from "../../db/post-db-type"
-import { PostInputModel, PostViewModel } from "../../input-output-types/posts-types"
-import { postsCollection } from "../../db/mongodb"
-import { postsQueryParamsType } from "../../helpers/helper"
 import { ObjectId } from "mongodb"
+import { postsCollection } from "../../db/mongodb"
+import { PostDbType } from "../../db/post-db-type"
+import { PostInputModel, PostViewModel } from "./types/posts-types"
 
 export const postsRepository = {
 

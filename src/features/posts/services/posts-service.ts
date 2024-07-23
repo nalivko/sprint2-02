@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb";
 import { PostDbType } from "../../../db/post-db-type";
 import { setPostsQueryParams } from "../../../helpers/helper";
-import { PostInputModel, PostViewModel } from "../../../input-output-types/posts-types";
+import { PostInputModel, PostViewModel } from "../types/posts-types";
 import { blogsService } from "../../blogs/services/blogs-service";
 import { postsRepository } from "../posts-db-repository";
 import { postsQueryRepository } from "../posts-query-repository";

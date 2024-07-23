@@ -14,3 +14,11 @@ export type PostViewModel = {
     blogName: string
     createdAt: string
 }
+
+export type BlogsViewCollectionModel = {
+    pagesCount: number,
+    page: number,
+    pageSize: number,
+    totalCount: number,
+    items: Array<PostViewModel>
+  }

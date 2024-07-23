@@ -8,6 +8,7 @@ export const SETTINGS = {
         BLOGS: '/blogs',
         POSTS: '/posts',
         USERS: '/users',
+        COMMENTS: '/comments',
         AUTH: '/auth',
         TESTS: '/testing',
     },
@@ -18,6 +19,9 @@ export const SETTINGS = {
         DB_NAME: "bloggers_platform",
         BLOG_COLLECTION_NAME: "blogs",
         POST_COLLECTION_NAME: "posts",
-        USER_COLLECTION_NAME: "users"
-    }
+        USER_COLLECTION_NAME: "users",
+        COMMENT_COLLECTION_NAME: "comments"
+    },
+    AC_SECRET: 'secretkey',
+    AC_TIME: '1h'
 }

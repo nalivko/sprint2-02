@@ -3,7 +3,7 @@ import { checkErrorsMiddleware } from "../../../global-middlewares/checkErrorsMi
 
 const loginOrEmailValidator =
     body('loginOrEmail')
-        .isString().withMessage('name must be a string')
+        .isString().withMessage('login Or Email must be a string')
         .trim()
 
 const passwordValidator =

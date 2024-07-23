@@ -53,3 +53,19 @@ export const setUsersQueryParams = (query: { [key: string]: string | undefined }
         searchEmailTerm: query.searchEmailTerm ? query.searchEmailTerm : null
     }
 }
+
+export const setCommentsQueryParams = (query: { [key: string]: string | undefined }): commentsQueryParamsType => {
+    return {
+        pageNumber: query.pageNumber ? +query.pageNumber : 1,
+        pageSize: query.pageSize ? +query.pageSize : 10,
+        sortBy: query.sortBy ? query.sortBy : 'createdAt',
+        sortDirection: query.sortDirection ? query.sortDirection as SortDirection : 'desc',
+    }
+}
+
+export type commentsQueryParamsType = {
+    pageNumber: number,
+    pageSize: number,
+    sortBy: string,
+    sortDirection: SortDirection
+}

@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import { PostViewModel } from "../../../input-output-types/posts-types"
+import { PostViewModel } from "../types/posts-types"
 import { postsRepository } from "../posts-db-repository"
 import { postsService } from "../services/posts-service"
 

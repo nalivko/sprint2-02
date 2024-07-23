@@ -1,9 +1,10 @@
 import { blogsQueryParamsType } from "../../helpers/helper"
 import { blogsCollection } from "../../db/mongodb"
 import { blogsRepository } from "./blogs-db-repository"
+import { BlogsViewCollectionModel } from "./types/blogs-types"
 
 export const blogsQueryRepository = {
-    async findBlogs(queryParams: blogsQueryParamsType): Promise<{}> {
+    async findBlogs(queryParams: blogsQueryParamsType): Promise<BlogsViewCollectionModel> {
 
         const searchFilter = this.getSearchFilter(queryParams.searchNameTerm)
 
@@ -20,9 +21,7 @@ export const blogsQueryRepository = {
             pagesCount: Math.ceil(totalCount / queryParams.pageSize),
             page: queryParams.pageNumber,
             pageSize: queryParams.pageSize,
-            // totalCount: totalCount,
             totalCount,
-            // items: this.mapAllBlogs(items)
             items: items.map(blogsRepository.mapBlog)
         }
     },

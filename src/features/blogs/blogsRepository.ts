@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb"
 import { BlogDbType } from "../../db/blog-db-type"
 import { db } from "../../db/db"
-import { BlogInputModel } from "../../input-output-types/blogs-types"
+import { BlogInputModel } from "./types/blogs-types"
 
 export const blogsRepository = {
     getAllBlogs() {

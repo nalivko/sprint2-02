@@ -1,13 +1,10 @@
 import { ObjectId } from "mongodb";
 import { usersCollection } from "../../db/mongodb";
 import { UserDbType } from "../../db/user-db-type";
-import { UserInputModel, UserViewModel } from "../../input-output-types/users-type";
+import { UserInputModel, UserViewModel } from "./types/users-type";
 
 export const usersRepository = {
     async doesUserExist(user: UserInputModel): Promise<{ isUnique: boolean, field: string | null }> {
-        // const userExistWithLogin = await usersCollection.findOne({login: user.login})
-        // const userExistWithEmail = await usersCollection.findOne({email: user.email})
-
         if (await usersCollection.findOne({ login: user.login })) {
             return { isUnique: false, field: 'login' }
         }
@@ -46,5 +43,9 @@ export const usersRepository = {
                     ]
             }
         )
+    },
+
+    async getUserById(id: string) {
+        return await usersCollection.findOne({ _id: new ObjectId(id) })
     }
 }

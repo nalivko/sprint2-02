@@ -1,5 +1,5 @@
 import { BlogDbType } from "../../db/blog-db-type"
-import { BlogInputModel, BlogViewModel } from "../../input-output-types/blogs-types"
+import { BlogInputModel, BlogViewModel } from "./types/blogs-types"
 import { blogsCollection } from "../../db/mongodb"
 import { ObjectId } from "mongodb"
 
@@ -18,13 +18,15 @@ export const blogsRepository = {
     },
 
     async updateBlog(id: string, newData: BlogInputModel): Promise<boolean> {
-        let result = await blogsCollection.updateOne({ _id: new ObjectId(id) }, {
-            $set: {
-                name: newData.name,
-                description: newData.description,
-                websiteUrl: newData.websiteUrl,
-            }
-        })
+        let result = await blogsCollection.updateOne(
+            { _id: new ObjectId(id) },
+            {
+                $set: {
+                    name: newData.name,
+                    description: newData.description,
+                    websiteUrl: newData.websiteUrl,
+                }
+            })
 
         return result.matchedCount === 1
     },

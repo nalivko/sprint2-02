@@ -1,5 +1,3 @@
-import { ObjectId } from "mongodb"
-
 export type BlogInputModel = {
     name: string,
     description: string,
@@ -14,3 +12,11 @@ export type BlogViewModel = {
     createdAt: string,
     isMembership: boolean
 }
+
+export type BlogsViewCollectionModel = {
+    pagesCount: number,
+    page: number,
+    pageSize: number,
+    totalCount: number,
+    items: Array<BlogViewModel>
+  }

@@ -1,11 +1,12 @@
 import { UserDbType } from "../../../db/user-db-type";
-import { UserInputModel, UserViewModel } from "../../../input-output-types/users-type";
+import { UserInputModel, UserViewModel } from "../types/users-type";
+import { userQueryRepository } from "../usersQueryRepository";
 import { usersRepository } from "../usersRepository";
 import bcrypt from 'bcrypt'
 
 export type result<T = null> = {
     status: string,
-    errorMessages?: [{field: string | null, message: string | null}],
+    errorMessages?: [{ field: string | null, message: string | null }],
     data: T
 }
 
@@ -23,7 +24,7 @@ export const usersService = {
                 data: null
             }
         }
-        
+
 
         const passwordSalt = await bcrypt.genSalt(10)
         const passwordHash = await bcrypt.hash(user.password, passwordSalt)
@@ -42,6 +43,10 @@ export const usersService = {
             status: '204',
             data: result
         }
+    },
+
+    async findUserById(id: string) {
+        return await userQueryRepository.getUserById(id)
     },
 
     async doesUserExist(user: UserInputModel) {

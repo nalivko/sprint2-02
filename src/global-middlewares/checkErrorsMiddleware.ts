@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express"
 import { validationResult } from "express-validator"
-import { BlogInputModel } from "../input-output-types/blogs-types"
-import { PostInputModel } from "../input-output-types/posts-types"
+import { BlogInputModel } from "../features/blogs/types/blogs-types"
+import { PostInputModel } from "../features/posts/types/posts-types"
 
 export type FieldNamesType = keyof BlogInputModel | keyof PostInputModel
 // const f: FieldsType = 'some' // error

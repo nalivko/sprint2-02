@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import { BlogInputModel } from "../../../input-output-types/blogs-types"
+import { BlogInputModel } from "../types/blogs-types"
 import { blogsService } from "../services/blogs-service"
 
 export const updateBlogController = async (req: Request<{ id: string }, any, BlogInputModel>, res: Response) => {

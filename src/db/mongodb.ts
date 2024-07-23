@@ -3,6 +3,7 @@ import { SETTINGS } from "../settings";
 import { BlogDbType } from "./blog-db-type";
 import { PostDbType } from "./post-db-type";
 import { UserDbType } from "./user-db-type";
+import { CommentDbType } from "./comment-db-type";
 import { MongoMemoryServer } from "mongodb-memory-server";
 
 
@@ -17,6 +18,7 @@ let db
 export let blogsCollection: Collection<BlogDbType>
 export let postsCollection: Collection<PostDbType>
 export let usersCollection: Collection<UserDbType>
+export let commentsCollection: Collection<CommentDbType>
 
 export async function runDb(mongoMemoryServer = false) {
     if (mongoMemoryServer) {
@@ -33,6 +35,7 @@ export async function runDb(mongoMemoryServer = false) {
     blogsCollection = db.collection(SETTINGS.MONGO_DB.BLOG_COLLECTION_NAME)
     postsCollection = db.collection(SETTINGS.MONGO_DB.POST_COLLECTION_NAME)
     usersCollection = db.collection(SETTINGS.MONGO_DB.USER_COLLECTION_NAME)
+    commentsCollection = db.collection(SETTINGS.MONGO_DB.COMMENT_COLLECTION_NAME)
 
     try {
         

@@ -2,8 +2,8 @@ import { ObjectId } from "mongodb";
 import { BlogDbType } from "../../../db/blog-db-type";
 import { PostDbType } from "../../../db/post-db-type";
 import { setPostsQueryParams, setBlogsQueryParams } from "../../../helpers/helper";
-import { BlogInputModel, BlogViewModel } from "../../../input-output-types/blogs-types";
-import { PostInputModel } from "../../../input-output-types/posts-types";
+import { BlogInputModel, BlogsViewCollectionModel, BlogViewModel } from "../types/blogs-types";
+import { PostInputModel } from "../../posts/types/posts-types";
 import { postsRepository } from "../../posts/posts-db-repository";
 import { blogsRepository } from "../blogs-db-repository";
 import { blogsQueryRepository } from "../blogs-query-repository";
@@ -11,7 +11,7 @@ import { postsQueryRepository } from "../../posts/posts-query-repository";
 
 export const blogsService = {
     
-    async findBlogs(query: {[key: string]: string | undefined}): Promise<{}> {
+    async findBlogs(query: {[key: string]: string | undefined}): Promise<BlogsViewCollectionModel> {
         const queryParams = setBlogsQueryParams(query)
 
         return blogsQueryRepository.findBlogs(queryParams)

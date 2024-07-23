@@ -12,3 +12,11 @@ export type UserViewModel = {
   email: string,
   createdAt: string
 }
+
+export type UsersViewCollectionModels = {
+  pagesCount: number,
+  page: number,
+  pageSize: number,
+  totalCount: number,
+  items: Array<UserViewModel>
+}

@@ -1,8 +1,10 @@
+import { ObjectId } from "mongodb"
 import { usersCollection } from "../../db/mongodb"
 import { setUsersQueryParams, usersQueryParamsType } from "../../helpers/helper"
+import { UsersViewCollectionModels } from "./types/users-type"
 
 export const userQueryRepository = {
-    async getUsers(params: { [key: string]: string | undefined }) {
+    async getUsers(params: { [key: string]: string | undefined }): Promise<UsersViewCollectionModels> {
         const queryParams = setUsersQueryParams(params)
 
         const searchFilter = this.getSearchFilter(queryParams.searchLoginTerm, queryParams.searchEmailTerm)
@@ -35,11 +37,6 @@ export const userQueryRepository = {
     getSearchFilter(loginTerm: string | null, emailTerm: string | null) {
 
         if (loginTerm || emailTerm) {
-            // return {
-            //     login: loginTerm ? { $regex: loginTerm, $options: 'i' } : { $exists: true },
-            //     email: emailTerm ? { $regex: emailTerm, $options: 'i' } : { $exists: true }
-            // }
-
             return {
                 $or: [
                     { login: loginTerm ? { $regex: loginTerm, $options: 'i' } : { $exists: true } },
@@ -49,5 +46,9 @@ export const userQueryRepository = {
         }
 
         return {}
+    },
+
+    async getUserById(userId: string) {
+        return await usersCollection.findOne({_id: new ObjectId(userId)})
     }
 }

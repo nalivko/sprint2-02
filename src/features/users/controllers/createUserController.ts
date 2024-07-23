@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
 import { usersService } from "../services/users-service"
-import { UserInputModel, UserViewModel } from "../../../input-output-types/users-type"
+import { UserInputModel, UserViewModel } from "../types/users-type"
 import { result } from "../services/users-service"
 
 export const createUserController = async (req: Request<{}, {}, UserInputModel>, res: Response) => {

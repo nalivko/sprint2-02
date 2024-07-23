@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb"
 import { db } from "../../db/db"
 import { PostDbType } from "../../db/post-db-type"
-import { PostInputModel } from "../../input-output-types/posts-types"
+import { PostInputModel } from "./types/posts-types"
 import { blogsRepository } from "../blogs/blogsRepository"
 
 export const postsRepository = {

@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import { PostViewModel } from "../../../input-output-types/posts-types"
+import { PostViewModel } from "../types/posts-types"
 import { postsService } from "../services/posts-service"
 
 export const findPostController = async (req: Request, res: Response<PostViewModel>) => {
