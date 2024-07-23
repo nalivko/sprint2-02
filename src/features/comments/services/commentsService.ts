@@ -46,7 +46,7 @@ export const commentService = {
             }
         }
 
-        if (comment.commentatorInfo.userId != userId) {
+        if (comment.commentatorInfo.userId !== userId) {
             return {
                 status: ResultStatus.Forbidden,
                 data: null
@@ -78,7 +78,7 @@ export const commentService = {
             }
         }
 
-        if (comment.commentatorInfo.userId != userId) {
+        if (comment.commentatorInfo.userId !== userId) {
             return {
                 status: ResultStatus.Forbidden,
                 data: null

@@ -4,7 +4,7 @@ import { usersRepository } from "../../users/usersRepository"
 
 export const authMiddleware = async (req: Request<{}, {}, {}>, res: Response, next: NextFunction) => {
     if (!req.headers.authorization) {
-        res.send(408)
+        res.send(401)
         return
     }
 
