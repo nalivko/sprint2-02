@@ -29,6 +29,12 @@ export const commentsRepository = {
         return result.deletedCount === 1
     },
 
+    async getCommentById(id: string) {
+        let comment = await commentsCollection.findOne({_id: new ObjectId(id)})
+        
+        return comment ? this.mapComment(comment) : null
+    },
+
     mapComment(comment: CommentDbType) {
         return {
             id: comment._id!.toString(),

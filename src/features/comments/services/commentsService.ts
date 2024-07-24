@@ -32,12 +32,8 @@ export const commentService = {
         return await commentsRepository.createComment(newComment)
     },
 
-    async getCommentById(id: string): Promise<CommentViewModel | null> {
-        return await commentsQueryRepository.getCommentById(id)
-    },
-
     async updateComment(id: string, data: CommentInputModel, userId: string): Promise<Result<CommentViewModel | null>> {
-        const comment = await this.getCommentById(id)
+        const comment = await commentsRepository.getCommentById(id)
 
         if(!comment) {
             return {
@@ -69,7 +65,7 @@ export const commentService = {
     },
 
     async deleteComment(id: string, userId: string): Promise<Result<CommentViewModel | null>> {
-        const comment = await this.getCommentById(id)
+        const comment = await commentsRepository.getCommentById(id)
         
         if(!comment) {
             return {

@@ -10,7 +10,7 @@ export const authService = {
 
         if(!user) return null
 
-        return await jwtService.createToken(user._id.toString())
+        return await jwtService.createToken(user._id.toString(), user.login)
     },
 
     async checkCredentials(loginOrEmail: string, password: string): Promise<WithId<UserDbType> | null> {

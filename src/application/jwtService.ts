@@ -4,14 +4,14 @@ import { ObjectId } from 'mongodb'
 import { usersRepository } from '../features/users/usersRepository'
 
 export const jwtService = {
-    async createToken(userId: string): Promise<string> {
-        const user = await usersRepository.getUserById(userId)
+    async createToken(userId: string, userLogin: string): Promise<string> {
+        // const user = await usersRepository.getUserById(userId)
 
         return jwt.sign(
             {
                 user: {
-                    login: user?.login,
-                    userId: user?._id.toString()
+                    login: userLogin,
+                    userId
                 }
             },
             SETTINGS.AC_SECRET,
