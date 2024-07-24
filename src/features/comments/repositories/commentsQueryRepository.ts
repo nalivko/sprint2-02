@@ -13,7 +13,7 @@ export const commentsQueryRepository = {
             .limit(queryParams.pageSize)
             .toArray()
 
-        const totalCount = await commentsCollection.countDocuments({})
+        const totalCount = await commentsCollection.countDocuments({postId})
 
         return {
             pagesCount: Math.ceil(totalCount / queryParams.pageSize),
