@@ -52,6 +52,8 @@ export async function runDb(mongoMemoryServer = false) {
 export async function stop() {
     if (client) {
         await client.close()
+        console.log('Connection successful closed');
+        
     }
 }
 
